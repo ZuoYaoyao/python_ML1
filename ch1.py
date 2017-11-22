@@ -1,1 +1,2 @@
-def
+def  dd:
+    a=1
