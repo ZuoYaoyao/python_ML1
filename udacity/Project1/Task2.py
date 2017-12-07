@@ -20,6 +20,19 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
+
+def max_time(record):
+    time = 0
+    for item in record:
+        if int(item[3]) > time:
+            time = int(item[3])
+            number = item[1]
+    print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(number, time))
+
+
+max_time(calls)
+
+
 """
 TASK 2: Which telephone number spent the longest time on the phone
 during the period? Don't forget that time spent answering a call is
