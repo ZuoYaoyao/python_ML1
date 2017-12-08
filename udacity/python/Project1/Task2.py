@@ -30,6 +30,7 @@ def max_time(record):
     print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(number, time))
 
 
+# call function
 max_time(calls)
 
 
@@ -48,4 +49,3 @@ dictionary. If the key is already in the dictionary, add the value to
 the key's existing value. If the key does not already appear in the
 dictionary, add it and set its value to be the given value.
 """
-

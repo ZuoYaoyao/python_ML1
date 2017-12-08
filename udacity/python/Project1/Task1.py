@@ -25,20 +25,22 @@ with open('calls.csv', 'r') as f:
 def amounts_number(record1, record2):
     count = set()
     for item in record1:
-        if item[0] not in count:
-            count.add(item[0])
-        if item[1] not in count:
-            count.add(item[1])
+        count.add(item[0])
+        count.add(item[1])
 
     for item in record2:
-        if item[0] not in count:
-            count.add(item[0])
-        if item[1] not in count:
-            count.add(item[1])
-    return len(count)
+        count.add(item[0])
+        count.add(item[1])
+
+    num = len(count)
+
+    print("There are {} different telephone numbers in the records.".format(num))
 
 
-print("There are {} different telephone numbers in the records.".format(amounts_number(texts, calls)))
+# call function
+amounts_number(texts, calls)
+
+
 """
 TASK 1: 
 How many different telephone numbers are there in the records? 

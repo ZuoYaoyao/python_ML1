@@ -21,6 +21,27 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
+
+def find_telemarketers(text, call):
+    # make outgoing calls
+    count = 0
+    result = []
+    for item in call:
+        if item[0][0:3] == '140':
+            if item[0] not in result:
+                result.append(item[0])
+                count += 1
+
+    # output results
+    result.sort()
+    print("These numbers could be telemarketers:")
+    for item in result:
+        print(item)
+
+
+# call the function
+find_telemarketers(texts, calls)
+
 """
 TASK 4:
 The telephone company want to identify numbers that might be doing
@@ -33,4 +54,3 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
-
