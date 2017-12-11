@@ -32,7 +32,7 @@ def output(text, call):
 output(texts, calls)
 
 """
-TASK 0: 
+TASK 0::
 what is the first record of texts and what is the last record of calls
 Print messages: 
 "First record of texts, <incoming number> texts <answering number> at time <time>"
