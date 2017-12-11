@@ -23,26 +23,42 @@ with open('calls.csv', 'r') as f:
 
 
 def collect(records):
+    # init vars
     all_count = 0
     count = 0
     result = []
+    ratio = 0
 
+    # find codes and mobile prefix
     for item in records:
+        # 080 call
         if item[0][1:4] == '080':
             all_count += 1
+            # answered by fixed lines
             if item[1][0] == '(':
-                count += 1
+                # count += 1
                 end = item[1].find(')')
-                tmp = item[1][1:end]
-                if tmp not in result:
-                    result.append(tmp)
+                tmp_result = item[1][1:end]
+                # 080 answer
+                if tmp_result == '080':
+                    count += 1
+                if tmp_result not in result:
+                    result.append(tmp_result)
+            # answered by mobile
+            else:
+                tmp_result = item[1][0:4]
+                if tmp_result not in result:
+                    result.append(tmp_result)
+
+    ratio = count / all_count * 100
 
     # sort and output
     result.sort()
     print("The numbers called by people in Bangalore have codes:")
+
     for iterator in result:
         print(iterator)
-    print("{} percent of calls from fixed lines in Bangalore are calls".format('{0:.2f}'.format(count/all_count*100)))
+    print("{} percent of calls from fixed lines in Bangalore are calls".format('{0:.2f}'.format(ratio)))
 
 
 # call function

@@ -23,15 +23,37 @@ with open('calls.csv', 'r') as f:
 
 
 def find_telemarketers(text, call):
-    # make outgoing calls
-    count = 0
+    # init var
     result = []
+    result1 = set()
+    set1 = set()
+    set2 = set()
+    set3 = set()
+
     for item in call:
+        # construct set with hidden telemarketers
+        result1.add(item[0])
+        # never receive call
+        set1.add(item[1])
+        # find 140
         if item[0][0:3] == '140':
             if item[0] not in result:
                 result.append(item[0])
-                count += 1
 
+    for item in text:
+        # never send txt
+        set2.add(item[0])
+        # never receive txt
+        set3.add(item[1])
+
+    # Difference to remove unqualified ones
+    result1 = result1 - set1
+    result1 = result1 - set2
+    result1 = result1 - set3
+
+    # append to list
+    for item in result1:
+        result.append(item)
     # output results
     result.sort()
     print("These numbers could be telemarketers:")
@@ -41,6 +63,24 @@ def find_telemarketers(text, call):
 
 # call the function
 find_telemarketers(texts, calls)
+
+"""
+    another way
+    # never receive call
+    for item in call:
+        if item[1] in result1:
+            result1.remove(item[1])
+
+    # never text
+    for item in text:
+        # never send text
+        if item[0] in result1:
+            result1.remove(item[0])
+        # never receive text
+        if item[1] in result1:
+            result1.remove(item[1])
+    """
+
 
 """
 TASK 4:

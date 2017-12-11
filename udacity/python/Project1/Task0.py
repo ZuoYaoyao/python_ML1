@@ -26,7 +26,7 @@ with open('calls.csv', 'r') as f:
 def output(text, call):
     print("First record of texts,{} texts {} at time {}".format(text[0][0], text[0][1], text[0][2]))
     print("Last record of calls, {} calls {} at time {}, lasting {} seconds"
-          .format(call[0][0], call[0][1], call[0][2], call[0][3]))
+          .format(call[-1][0], call[-1][1], call[-1][2], call[-1][3]))
 
 
 output(texts, calls)
