@@ -149,4 +149,3 @@ with open('output.txt', 'w', encoding='utf-8-sig') as txt:
             txt.write('\n')
         index += 1
         txt.write('\n')
- 

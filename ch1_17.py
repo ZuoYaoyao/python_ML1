@@ -30,6 +30,7 @@ class Perceptron(object):
 
 
 df = pd.read_csv('dataset/iris.data.txt')
+
 # print(df.head())
 
 y = df.iloc[0:100, 4].values
